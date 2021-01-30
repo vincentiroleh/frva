@@ -5,6 +5,7 @@
 import express, {Request, Response} from "express";
 import * as RuleService from "./rules.service";
 import {UserRule, RuleCondition} from "./rule.interface";
+import {validators} from "../middleware/rule.utils";
 
 /**
  * Router Definition
@@ -31,7 +32,7 @@ ruleRouter.get("/", async (req : Request, res : Response) => {
 
 // POST rules
 
-ruleRouter.post("/validate-rule", async (req : Request, res : Response) => {
+ruleRouter.post("/validate-rule", validators.RuleData, async (req : Request, res : Response) => {
     try {
         const post: RuleCondition = req.body;
         const newPost = await RuleService.validateRule(post);
