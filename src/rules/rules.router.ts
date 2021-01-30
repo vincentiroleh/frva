@@ -4,7 +4,7 @@
 
 import express, {Request, Response} from "express";
 import * as RuleService from "./rules.service";
-import {UserRule, RuleCondition} from "./rule.interface";
+import {UserRule} from "./rule.interface";
 import {validators} from "../middleware/rule.utils";
 
 /**
@@ -34,7 +34,7 @@ ruleRouter.get("/", async (req : Request, res : Response) => {
 
 ruleRouter.post("/validate-rule", validators.RuleData, async (req : Request, res : Response) => {
     try {
-        const post: RuleCondition = req.body;
+        const post = req.body;
         const newPost = await RuleService.validateRule(post);
         res.status(201).json(newPost);
 

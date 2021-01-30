@@ -21,6 +21,6 @@ export interface RuleCondition {
         crew: string;
         age: number;
         position: string,
-        missions: number
+        missions: number,
     }
 }

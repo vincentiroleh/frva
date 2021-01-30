@@ -25,4 +25,4 @@ let candidate: UserRule = {
  */
 
 export const getUser = async () : Promise < UserRule[] > => Object(candidate);
-export const validateRule = async (newPost : RuleCondition) : Promise < [] > => Object(newPost);
+export const validateRule = async (newPost : any) : Promise < any > => Object(newPost)
